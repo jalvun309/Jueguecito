@@ -2,6 +2,40 @@
 <html>
 <head>
     <title>Piedra, Papel y Tijeras</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        select {
+            font-size: 18px;
+            padding: 5px;
+        }
+
+        input[type="submit"] {
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 <h1>Juego de Piedra, Papel y Tijeras</h1>
