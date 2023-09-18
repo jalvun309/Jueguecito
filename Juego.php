@@ -14,7 +14,7 @@
 
         p {
             font-size: 20px;
-            margin: 10px;
+            margin: 9px;
         }
 
         select {
