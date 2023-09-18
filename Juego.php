@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Piedra, Papel y Tijeras</title>
-
+    <title>Piedra, Papel, Tijeras, Lagarto, Spock</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,12 +37,12 @@
     </style>
 </head>
 <body>
-<h1>Juego de Piedra, Papel y Tijeras</h1>
+<h1>Juego de Piedra, Papel, Tijeras, Lagarto, Spock</h1>
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $jugador = $_POST["jugador"];
-    $opciones = array("piedra", "papel", "tijeras");
+    $opciones = array("piedra", "papel", "tijeras", "lagarto", "spock");
     $computadora = $opciones[array_rand($opciones)];
 
     echo "<p>Tu elección: $jugador</p>";
@@ -51,9 +50,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($jugador == $computadora) {
         echo "<p>¡Empate!</p>";
-    } elseif (($jugador == "piedra" && $computadora == "tijeras") ||
-        ($jugador == "papel" && $computadora == "piedra") ||
-        ($jugador == "tijeras" && $computadora == "papel")) {
+    } elseif (
+        ($jugador == "piedra" && ($computadora == "tijeras" || $computadora == "lagarto")) ||
+        ($jugador == "papel" && ($computadora == "piedra" || $computadora == "spock")) ||
+        ($jugador == "tijeras" && ($computadora == "papel" || $computadora == "lagarto")) ||
+        ($jugador == "lagarto" && ($computadora == "spock" || $computadora == "papel")) ||
+        ($jugador == "spock" && ($computadora == "tijeras" || $computadora == "piedra"))
+    ) {
         echo "<p>¡Ganaste!</p>";
     } else {
         echo "<p>¡La computadora gana!</p>";
@@ -67,6 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <option value="piedra">Piedra</option>
         <option value="papel">Papel</option>
         <option value="tijeras">Tijeras</option>
+        <option value="lagarto">Lagarto</option>
+        <option value="spock">Spock</option>
     </select>
     <input type="submit" value="Jugar">
 </form>
